@@ -1,0 +1,430 @@
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+#include<time.h>
+#include<math.h>
+#include<string.h>
+#include"io.h"
+#include<ctype.h>
+#include"io.h"
+void method_01(void){
+//definir dados
+int quantidade = 0;
+int valor = 0;
+int controle = 0;
+//identificar
+IO_id("Metodo_01-v0.0");
+//ler do teclado
+quantidade = IO_readint("Insira uma quantidade");
+//repetir para a quantidade de vezes informada
+controle = 1;
+while(controle <= quantidade){
+
+valor = IO_readint(IO_concat(IO_concat("", IO_toString_d(controle)),":"));
+//mostrar valor lido
+printf("\n%s%d\n", "valor = ", valor);
+//passar para o proximo valor
+controle = controle +1;
+}//end while
+
+
+printf("%s", "Aperte ENTER para continuar");
+getchar();
+
+
+
+}
+
+
+bool positive ( int x )
+{
+// definir dado local
+ bool result = false;
+// testar a condicao
+ if ( x > 0 )
+ {
+ result = true;
+ } // end if
+ return ( result );
+} // end positive ( )
+
+
+void method_02(void){
+//definir dados
+int quantidade = 0;
+int valor = 0;
+int controle = 0;
+int contador = 0;
+//Identificar
+IO_id("Metodo_02-v0.0");
+//Ler do teclado
+quantidade = IO_readint("Insira uma quantidade");
+controle = 1;
+while(controle<= quantidade){
+valor = IO_readint(IO_concat(IO_concat("",IO_toString_d(controle)), ":"));/* isso aqui junta o valor de controle com uma string,
+                                                                         depois com um : e depois junta com o valor que vc inseriu*/
+//testar se valor for positivo
+if(positive(valor >0)){
+
+contador = contador +1;
+
+
+}
+controle = controle + 1;
+//mostrar a quantidade de valores positivos
+
+}
+IO_printf("%s:%d\n", "Valores positivos", contador);
+//encerrar
+printf("%s", "Aperte ENTER para continuar");
+getchar();
+
+}
+
+
+
+
+
+bool belongsTo ( int x, int inferior, int superior )
+{
+// definir dado local
+ bool result = false;
+// testar a condicao
+ if ( inferior < x && x < superior )
+ {
+ result = true;
+ } // end if
+ return ( result );
+} // end belongsTo ( )
+
+
+
+
+
+
+
+void method_03(void){
+//definir dados
+int quantidade = 0;
+int valor = 0;
+int controle = 0;
+int contador = 0;
+//Identificar
+IO_id("Metodo_03-v0.0");
+//Ler do teclado
+quantidade = IO_readint("Insira uma quantidade");
+controle = 1;
+while(controle<= quantidade){
+valor = IO_readint(IO_concat(IO_concat("",IO_toString_d(controle)), ":"));/* isso aqui junta o valor de controle com uma string,
+                                                                         depois com um : e depois junta com o valor que vc inseriu*/
+//testar se valor for positivo
+if(belongsTo(valor, 0, 100)){
+
+contador = contador +1;
+
+
+}
+controle = controle + 1;
+//mostrar a quantidade de valores positivos
+
+}
+IO_printf("%s:%d\n", "Valores positivos e menores que 100 ", contador);
+//encerrar
+printf("%s", "Aperte ENTER para continuar");
+getchar();
+
+
+}
+
+bool even (int x){
+// definir dados
+    bool result = false;
+    if(x % 2 == 0){
+
+        result = true;
+
+    }// end if
+    return (result);
+
+
+}
+
+void method_04(void){
+    //definir dados
+//definir dados
+int quantidade = 0;
+int valor = 0;
+int controle = 0;
+int contador = 0;
+//Identificar
+IO_id("Metodo_04-v0.0");
+//Ler do teclado
+quantidade = IO_readint("Insira uma quantidade: ");
+controle = 1;
+while(controle <= quantidade){
+
+    valor = IO_readint(IO_concat(IO_concat("",IO_toString_d(controle) ), ":")); // ler o valor e o termo ao qual ele pertence
+    if(belongsTo(valor, 0, 100)&& even(valor)){
+
+contador  = contador +1;
+
+
+    }
+
+controle = controle + 1;
+
+
+}
+IO_printf("%s%d\n", "Quantidade de numeros [0,100] && pares:", contador);
+//encerrar
+printf("%s", "Aperte ENTER para continuar");
+getchar();
+
+}
+
+
+void method_05(void){  //definir dados
+//definir dados
+int quantidade = 0;
+int valor = 0;
+int controle = 0;
+int contador = 0;
+bool ok = false;
+//Identificar
+IO_id("Metodo_05-v0.0");
+//Ler do teclado
+quantidade = IO_readint("Insira uma quantidade: ");
+controle = 1;
+while(controle <= quantidade){
+
+    valor = IO_readint(IO_concat(IO_concat("",IO_toString_d(controle) ), ":")); // ler o valor e o termo ao qual ele pertence
+    
+    ok = belongsTo(valor, 0 ,100);
+    ok = ok && even(valor);
+    if(ok){
+
+contador  = contador +1;
+
+
+    }
+
+controle = controle + 1;
+
+
+}
+IO_printf("%s%d\n", "Quantidade de numeros [0,100] && pares:", contador);
+//encerrar
+printf("%s", "Aperte ENTER para continuar");
+getchar();
+}
+
+bool isLowercase(char x){
+//definir variavel local
+bool result = false;
+//if lowercase
+if('a'<= x && x <= 'z'){
+
+
+    result= true;
+
+}// end if
+
+//retornar valor
+return (result);
+}
+
+
+
+
+void method_06(void){
+    //definir variaveis
+chars palavra = IO_new_chars(STR_SIZE);
+int tamanho = 0;
+int posicao = 0;
+ char simbolo = '_';
+ int contador = 0;
+//identificar
+IO_id("Metodo_06-v0.0");
+palavra = IO_readstring("Entrar com uma palavra: ");
+tamanho = strlen(palavra);
+//repetir for
+for(posicao = 0; posicao < tamanho ; posicao++){
+
+    simbolo = palavra[posicao];
+    printf("%c:[%d]\n", simbolo, posicao);
+    if(isLowercase(simbolo)){
+
+contador = contador +1;
+
+}//end if
+}//end for
+
+printf("%s%d\n", "Quantidade de minusculas: ", contador);
+//encerrar
+printf("Aperte ENTER para continuar");
+getchar();
+
+}
+
+void method_07(void){
+      //definir variaveis
+chars palavra = IO_new_chars(STR_SIZE);
+int tamanho = 0;
+int posicao = 0;
+ char simbolo = '_';
+ int contador = 0;
+//identificar
+IO_id("Metodo_07-v0.0");
+palavra = IO_readstring("Entrar com uma palavra: ");
+tamanho = strlen(palavra);
+//repetir for
+for(posicao = 0; posicao < tamanho ; posicao++){
+
+    simbolo = palavra[posicao];
+    if(isLowercase(simbolo)){
+printf("%c:[%d]\n", simbolo, posicao);
+contador = contador +1;
+
+}//end if
+}//end for
+
+printf("%s%d\n", "Quantidade de minusculas: ", contador);
+//encerrar
+printf("Aperte ENTER para continuar");
+getchar();
+}
+
+void method_08(void){
+          //definir variaveis
+chars palavra = IO_new_chars(STR_SIZE);
+int tamanho = 0;
+int posicao = 0;
+ char simbolo = '_';
+ int contador = 0;
+ chars minusculas = IO_new_chars(STR_SIZE);
+//identificar
+IO_id("Metodo_08-v0.0");
+palavra = IO_readstring("Entrar com uma palavra: ");
+tamanho = strlen(palavra);
+//repetir for
+for(posicao = 0; posicao < tamanho ; posicao++){
+
+    simbolo = palavra[posicao];
+    if(isLowercase(simbolo)){
+
+
+minusculas = IO_concat(minusculas,IO_toString_c(simbolo));              // isso vai pegar um caractere, printar e juntar em ciclo ate dar a palavra
+contador = contador +1;
+
+}//end if
+}//end for
+
+printf("\n%s%d[%s]\n", "Minusculas: ", contador, minusculas);
+//encerrar
+printf("Aperte ENTER para continuar");
+getchar();
+
+
+}
+
+bool isDigit(char x){
+
+
+bool result = false;
+if('0' <= x && x <= '9'){
+
+    result = true;
+}
+
+return (result);
+
+}
+
+void method_09(void){
+    //definir variaveis
+chars palavra = IO_new_chars(STR_SIZE);
+int tamanho = 0;
+int posicao = 0;
+ char simbolo = '_';
+ int contador = 0;
+ //ler do teclado
+ palavra = IO_readstring("Insira uma palavra: ");
+ //definir tamanho da palavra para loop
+ tamanho  = strlen(palavra);
+ //loop for
+ for(posicao = 0; posicao < tamanho; posicao ++){
+
+    //ler um simbolo por vez
+simbolo = palavra[posicao];
+if(isDigit(simbolo)){
+IO_printf("%c\n", simbolo);
+contador = contador +1;
+
+
+}//end if
+
+
+ }//end for
+IO_printf("%s%d[%s]", "Digitos = ", contador, palavra);
+//encerrar
+printf("Aperte ENTER para terminar");
+getchar();
+
+}
+
+
+int main(){
+int x = 0;
+do{
+IO_printf("%s", "Escolha um metodo: ");
+IO_printf("%s", "\n0_Terminar\n");
+for(x = 0; x <=10; x ++){
+
+IO_printf("%d.%s_%d\n", x , "Metodo", x);
+
+}
+x = IO_readint("Opcao: ");
+switch(x){
+case 0:
+break;
+case 1:
+method_01();
+break;
+case 2:
+method_02();
+break;
+case 3:
+method_03();
+break;
+case 4:
+method_04();
+break;
+case 5:
+method_05();
+break;
+case 6:
+method_06();
+break;
+case 7:
+method_07();
+break;
+case 8:
+method_08();
+break;
+case 9:
+method_09();
+break;
+case 10:
+method_10();
+break;
+default:
+printf("%s\n", "Erro opcao invalida!");
+break;
+}
+}while(x != 0);
+
+printf("%s", "Aperte ENTER para continuar");
+getchar();
+
+}
