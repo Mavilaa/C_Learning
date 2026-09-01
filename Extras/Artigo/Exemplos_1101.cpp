@@ -1,0 +1,76 @@
+#include<iostream>
+#include <iomanip>
+#include <fstream>
+#include <string>
+#include"Exemplos.hpp"
+#include<limits>
+
+
+void recursao(int x){
+
+if(x > 0){
+recursao(x-1);
+cout<<x<<".Exemplo-"<< x<<endl;
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+int main(){
+int x = 10;
+int opcao = 0;
+do{
+cout<<"Escolha um exemplo: "<<endl;
+cout<<"0.Terminar"<<endl;
+recursao(x);
+cin>>opcao;
+switch(opcao){
+case 0:
+break;
+case 1:
+example_01();
+break;
+case 2:
+example_02();
+break;
+case 3:
+example_03();
+break;
+case 4:
+example_04();
+break;
+case 5:
+example_05();
+break;
+case 6:
+example_06();
+break;
+case 7:
+example_07();
+break;
+case 8:
+example_08();
+break;
+case 9:
+example_09();
+break;
+case 10:
+example_10();
+break;
+default:
+cout<<"Exemplo Invalido!"<<endl;
+break;
+}
+}while(opcao != 0);
+
+
+pause("Aperte ENTER para terminar");
+}
