@@ -7,9 +7,6 @@
 #include"io.h"
 
 //Loops de for para tanto caracteres e numeros, achei meio complicadinho quando se colocam varias condicoes e ai tem que printar tal coisa enfim chatao
-void nigger(){
-    
-}
 
 
 
