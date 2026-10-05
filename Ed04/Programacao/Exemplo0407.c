@@ -8,7 +8,6 @@
 #include"io.h"
 #include<ctype.h>
 #include"io.h"
-#include"Metodos.h"
 void method_01(void){
 //definir dados
 int quantidade = 0;

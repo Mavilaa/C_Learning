@@ -9,7 +9,6 @@
 #include <time.h>      // para medir tempo
 #include <wchar.h>     // para 16-bit characters
 #include <iso646.h>    // para and, or, xor, not alternatives
-#include"Exemplos.h"
 #include"Tarefas.h"
 
 
