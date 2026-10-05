@@ -1,0 +1,15 @@
+# executaveis gerados pelo gcc
+*.exe
+*.out
+*.o
+Preparacao05
+Extra2
+
+# entregas compactadas (o codigo ja esta nas pastas)
+*.zip
+
+# LaTeX
+*.aux
+*.log
+*.toc
+*.synctex.gz
